@@ -19,71 +19,71 @@ public class EmployeeManager {
         if (args[0].equals("l")) {
             System.out.println("Loading data ...");
             try {
-                BufferedReader r = new BufferedReader(
+                BufferedReader reader = new BufferedReader(
                         new InputStreamReader(
                                 new FileInputStream("employees.txt")));
-                String l = r.readLine();
-                String e[] = l.split(",");
-                for (String emp : e) {
+                String line = reader.readLine();
+                String employee[] = line.split(",");
+                for (String emp : employee) {
                     System.out.println(emp);
                 }
-            } catch (Exception e) {
+            } catch (Exception exception) {
 
             }
             System.out.println("Data Loaded.");
         } else if (args[0].equals("s")) {
             System.out.println("Loading data ...");
             try {
-                BufferedReader r = new BufferedReader(
+                BufferedReader reader = new BufferedReader(
                         new InputStreamReader(
                                 new FileInputStream("employees.txt")));
-                String l = r.readLine();
-                System.out.println(l);
-                String e[] = l.split(",");
-                Random rand = new Random();
-                int idx = rand.nextInt(e.length);
-                System.out.println(e[idx]);
-            } catch (Exception e) {
+                String line = reader.readLine();
+                System.out.println(line);
+                String employee[] = line.split(",");
+                Random random = new Random();
+                int index = random.nextInt(employee.length);
+                System.out.println(employee[index]);
+            } catch (Exception exception) {
 
             }
             System.out.println("Data Loaded.");
         } else if (args[0].contains("+")) {
             System.out.println("Loading data ...");
             try {
-                BufferedWriter w = new BufferedWriter(
+                BufferedWriter writer = new BufferedWriter(
                         new FileWriter("employees.txt", true));
-                String n = args[0].substring(1);
-                w.write(", " + n);
-                w.close();
-            } catch (Exception e) {
+                String num= args[0].substring(1);
+                writer.write(", " + num);
+                writer.close();
+            } catch (Exception exception) {
 
             }
             System.out.println("Data Loaded.");
         } else if (args[0].contains("?")) {
             System.out.println("Loading data ...");
             try {
-                BufferedReader r = new BufferedReader(
+                BufferedReader reader = new BufferedReader(
                         new InputStreamReader(
                                 new FileInputStream("employees.txt")));
-                String l = r.readLine();
-                String e[] = l.split(",");
+                String line = reader.readLine();
+                String employee[] = line.split(",");
                 boolean found = false;
                 String s = args[0].substring(1);
-                for (int i = 0; i < e.length && !found; i++) {
-                    if (e[i].equals(s)) {
+                for (int i = 0; i < employee.length && !found; i++) {
+                    if (employee[i].equals(s)) {
                         System.out.println("Employee found!");
                         found = true;
                     }
                 }
-            } catch (Exception e) {}
+            } catch (Exception exception) {}
             System.out.println("Data Loaded.");
         } else if (args[0].contains("c")) {
             System.out.println("Loading data ...");
             try {
-                BufferedReader r = new BufferedReader(
+                BufferedReader reader = new BufferedReader(
                         new InputStreamReader(
                                 new FileInputStream("employees.txt")));
-                String l = r.readLine();
+                String line = reader.readLine();
                 char[] chars = l.toCharArray();
                 boolean inWord = false;
                 int count = 0;
@@ -98,48 +98,48 @@ public class EmployeeManager {
                     }
                 }
                 System.out.println(count + " word(s) found " + chars.length);
-            } catch (Exception e) {
+            } catch (Exception exception) {
 
             }
             System.out.println("Data Loaded.");
         } else if (args[0].contains("u")) {
             System.out.println("Loading data ...");
             try {
-                BufferedReader r = new BufferedReader(
+                BufferedReader reader = new BufferedReader(
                         new InputStreamReader(
                                 new FileInputStream("employees.txt")));
-                String l = r.readLine();
-                String e[] = l.split(",");
-                String n = args[0].substring(1);
-                for (int i = 0; i < e.length; i++) {
-                    if (e[i].equals(n)) {
-                        e[i] = "Updated";
+                String line = reader.readLine();
+                String employee[] = line.split(",");
+                String num = args[0].substring(1);
+                for (int i = 0; i < employee.length; i++) {
+                    if (employee[i].equals(n)) {
+                        employee[i] = "Updated";
                     }
                 }
-                BufferedWriter w = new BufferedWriter(
+                BufferedWriter writer = new BufferedWriter(
                         new FileWriter("employees.txt"));
-                w.write(String.join(",", e));
-                w.close();
-            } catch (Exception e) {
+                writer.write(String.join(",", e));
+                writer.close();
+            } catch (Exception exception) {
 
             }
             System.out.println("Data Updated.");
         } else if (args[0].contains("d")) {
             System.out.println("Loading data ...");
             try {
-                BufferedReader r = new BufferedReader(
+                BufferedReader reader = new BufferedReader(
                         new InputStreamReader(
                                 new FileInputStream("employees.txt")));
-                String l = r.readLine();
-                String e[] = l.split(",");
-                String n = args[0].substring(1);
-                List<String> list = new ArrayList<>(Arrays.asList(e));
-                list.remove(n);
-                BufferedWriter w = new BufferedWriter(
+                String line = reader.readLine();
+                String employee[] = line.split(",");
+                String num = args[0].substring(1);
+                List<String> list = new ArrayList<>(Arrays.asList(employee));
+                list.remove(num);
+                BufferedWriter writer = new BufferedWriter(
                         new FileWriter("employees.txt"));
-                w.write(String.join(",", list));
-                w.close();
-            } catch (Exception e) {
+                writer.write(String.join(",", list));
+                writer.close();
+            } catch (Exception exception) {
 
             }
             System.out.println("Data Deleted.");
