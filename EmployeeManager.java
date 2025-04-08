@@ -67,9 +67,9 @@ public class EmployeeManager {
         } else if (args[0].contains("c")) {
             System.out.println("Loading data ...");
             try {
-                int wordcount = 0;
-                for(String employees : readEmployeesFromFile()){
-                    wordcount+=employees.split(" ").length;
+                int totalCount = 0;
+                for(String employeeName : readEmployeesFromFile()){
+                    totalCount+=employeeName.split(" ").length;
                 }
             } catch (Exception exception) {
             System.out.println(wordcount + "Words found");
