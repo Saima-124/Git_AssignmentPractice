@@ -2,6 +2,8 @@
 import java.io.*;
 import java.util.*;
 
+import javax.swing.SpringLayout.Constraints;
+
 public class EmployeeManager {
     public static void main(String[] args) {
         // Check arguments
@@ -115,14 +117,14 @@ public class EmployeeManager {
 public static String[] readEmployeeFromFile() throws IOException{
     BufferedReader bufferedReader = new BufferedReader(
         new InputStreamReader(
-                new FileInputStream("employees.txt")));
+                new FileInputStream(Constants.EMPLOYEES_FILE_PATH)));
             String line = bufferedReader.readLine();
             bufferedReader.close();
             return line.split(" ");
 }
 public static String[] rwriterEmployeeToFile() throws IOException{
     BufferedReader bufferedWriter = new BufferedWriter(
-                new FileWriter("employees.txt"));
+                new FileWriter(Constants.EMPLOYEES_FILE_PATH));
             bufferedWriter.write(String.join(",",employee));
             bufferedReader.close();
             
