@@ -52,11 +52,13 @@ public class EmployeeManager {
         } else if (args[0].contains("?")) {
             System.out.println("Loading data ...");
             try {
-                for (String employees : readEmployeesFromFile()) {
-                    if (employee[i].equals(args[0].substring(1))) {
-                        System.out.println("Employee found!");
-                        break;
-                    }
+                String[] employee = readEmployeesFromFile();
+                String searchEmployee = args[0].substring(1);
+                boolean found = Arrays.asList(employee).contains(searchEmployee);
+                if(found){
+                    System.out.println("Employee is found");
+                }else{
+                    System.out.println("Employee is not found");
                 }
             } catch (Exception exception) {
 
