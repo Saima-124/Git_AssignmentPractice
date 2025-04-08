@@ -8,14 +8,8 @@ public class EmployeeManager {
     public static void main(String[] args) {
         // Check arguments
         if(arg[0]!=1){
-            System.out.println("Usage: EmployeeManager <options>");
-            System.out.println("Options : ");
-            System.out.println("l : list the employees");
-            System.out.println("s : show a random employee");
-            System.out.println("+<name> : add new employee");
-            System.out.println("?<name> : search the employee");
-            System.out.println("c : count the number of words");
-            System.out.println("u<name> : update the employee");
+           menu();
+           return;
         }
 
         if (args[0].equals("l")) {
@@ -100,7 +94,19 @@ public class EmployeeManager {
             }
             System.out.println("Data Deleted.");
         }
+        else{
+            menu();
+        }
     }
+}
+public static void menu(){
+    System.out.println("Invalid options. Please enter the following options :");
+    System.out.println("l : list the employees");
+    System.out.println("s : show a random employee");
+    System.out.println("+<name> : add new employee");
+    System.out.println("?<name> : search the employee");
+    System.out.println("c : count the number of words");
+    System.out.println("u<name> : update the employee");
 }
 public static String[] readEmployeeFromFile() throws IOException{
     BufferedReader bufferedReader = new BufferedReader(
